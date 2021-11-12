@@ -3,32 +3,27 @@
  * 
  * \author Bruno Benedetti <brunobenedetti45@gmail.com>
  * 
- * \version 1.0.0
+ * \version 1.0.1
  * 
  * \date 06/11/2021
  * 
  */
 
 #include "master_func.h"
+#include "requests.h"
 
-//-------- global variables --------
-int slave_adress;
-int master_message;
 
 void setup()
 {
   master_func_setup();
-
-  //-------- variable values --------
-  slave_adress = 9;   //Change manually the slave Adress
-  master_message = 4; //Change manually the master message
-  
 }
 
 void loop() 
 {
-  master_func_write(slave_adress, master_message);
-  master_func_read(slave_adress);
+  request_1(9,3,2);
   delay(5000); //Waits 5 seconds
-  Serial.println("---------------------///////---------------------");
+  request_2(9,1,3);
+  delay(5000); //Waits 5 seconds
+  request_3(9,4,5);
+  delay(5000); //Waits 5 seconds
 }

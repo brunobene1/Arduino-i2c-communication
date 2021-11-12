@@ -15,8 +15,10 @@ void master_func_setup();
  * \param[in] slave_adress Every slave has its unique adress
  * 
  * \param[in] master_message Master's message to the slave
+ * 
+ * \param[in] master_msg_length Master's message length in number of bytes
  */
-void master_func_write(int slave_adress, int master_message);
+void master_func_write(int slave_adress, int* master_message, int master_msg_length);
 
 
 /**
@@ -24,7 +26,8 @@ void master_func_write(int slave_adress, int master_message);
  * 
  * \param[in] slave_adress Every slave has its unique adress
  * 
+ * \param[in] slave_msg_length Slave message length in number of bytes
  */
-void master_func_read(int slave_adress);
+void master_func_read(int slave_adress, int slave_msg_length);
 
 #endif /* MASTER_FUNC_H */
