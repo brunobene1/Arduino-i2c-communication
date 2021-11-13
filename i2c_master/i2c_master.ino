@@ -12,18 +12,17 @@
 #include "master_func.h"
 #include "requests.h"
 
+int current_request;
 
 void setup()
 {
   master_func_setup();
+  current_request = 1;
 }
 
 void loop() 
 {
-  request_1(9,3,2);
-  delay(5000); //Waits 5 seconds
-  request_2(9,1,3);
-  delay(5000); //Waits 5 seconds
-  request_3(9,4,5);
+  requests(&current_request);
+  current_request++;
   delay(5000); //Waits 5 seconds
 }

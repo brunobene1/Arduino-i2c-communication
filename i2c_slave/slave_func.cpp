@@ -17,9 +17,13 @@ void slave_func_setup()
 
 void slave_func_read(int bytes)
 {
-  master_msg = Wire.read(); //reads from the Serial data bus
-  Serial.print("I received: ");
-  Serial.println(master_msg);
+  Serial.println("---------------------///////---------------------");
+  for(int i=0; i<bytes; i++)
+  {
+    master_msg = Wire.read(); //reads from the Serial data bus
+    Serial.print("I received: ");
+    Serial.println(master_msg); 
+  }
 }
 
 void slave_func_write()
@@ -37,6 +41,7 @@ void slave_func_write()
     slave_msg[7] = 66;
     slave_msg[8] = 0;
     slave_msg[9] = 23;
+    Serial.println("---------------------///////---------------------");
     for(int i=0; i<master_length_request ;i++)
     {
       Serial.print("sending: ");
@@ -55,6 +60,7 @@ void slave_func_write()
     slave_msg[7] = 6;
     slave_msg[8] = 13;
     slave_msg[9] = 40;
+    Serial.println("---------------------///////---------------------");
     for(int i=0; i<master_length_request ;i++)
     {
       Serial.print("sending: ");
@@ -73,6 +79,7 @@ void slave_func_write()
     slave_msg[7] = 15;
     slave_msg[8] = 4;
     slave_msg[9] = 3;
+    Serial.println("---------------------///////---------------------");
     for(int i=0; i<master_length_request ;i++)
     {
       Serial.print("sending: ");
@@ -91,6 +98,7 @@ void slave_func_write()
     slave_msg[7] = 0;
     slave_msg[8] = 0;
     slave_msg[9] = 0;
+    Serial.println("---------------------///////---------------------");
     for(int i=0; i<master_length_request ;i++)
     {
       Serial.print("sending: ");
