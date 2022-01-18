@@ -18,6 +18,7 @@ void setup()
 {
   master_func_setup();
   current_request = 1;
+  Serial.println("Teste");
 }
 
 void loop() 

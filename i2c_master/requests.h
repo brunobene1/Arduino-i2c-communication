@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include "Wire.h"
 #include "master_func.h"
+#include "crc8.h"
 
 /**
  * \brief All the i2c requests

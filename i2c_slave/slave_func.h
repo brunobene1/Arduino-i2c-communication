@@ -3,6 +3,8 @@
 
 #include <Arduino.h>
 #include "Wire.h"
+#include "crc8.h"
+#include "stdint.h"
 
 #define SLAVES_ADRESS 9
 
