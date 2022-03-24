@@ -12,56 +12,23 @@ void requests(int* current_request)
 {
   switch(*current_request)
   {
-    case 1:
+    case 1:       
     Serial.println("---------------------///////---------------------");
-    Serial.println("Request 1:");
-    //-------- variable values --------
-    slave_adress = 9;
-    master_msg_length = 3;
-    slave_msg_length =2;
-    master_message[0] = 39;              //*
-    master_message[1] = 18;              //* 
-    master_message[2] = 3;               //*  
-    //-------- variables end --------
+    Serial.println("Request 1 (EXAMPLE):");
+    
+    //------------------ variable values -----------------
+    slave_adress          = 9;   //Slave adress
+    master_msg_length     = 3;   //Number of bytes the master will send
+    slave_msg_length      = 2;   //Number of bytes the slave will send
+    //The master message will be inside an array (you can change the array length)
+    master_message[0]     = 39;  //Random data               
+    master_message[1]     = 18;  //Random data            
+    master_message[2]     = 3;   //Random data             
+    //----------------- variables end -----------------
+    
     master_func_write(slave_adress, master_message, master_msg_length);
     master_func_read(slave_adress, slave_msg_length, slave_msg);
     break;
-
-    case 2:
-    Serial.println("---------------------///////---------------------");
-    Serial.println("Request 2:");
-    //-------- variable values --------
-    slave_adress = 9;
-    master_msg_length = 1;
-    slave_msg_length =2;
-    master_message[0] = 1;                //*
-    //-------- variables end --------
-    master_func_write(slave_adress, master_message, master_msg_length);
-    master_func_read(slave_adress, slave_msg_length, slave_msg);
-    break;
-
-    case 3://crc check
-    Serial.println("---------------------///////---------------------");
-    Serial.println("Request 3 (Crc8 check):");
-    //-------- variable values --------
-    slave_adress = 9;
-    master_msg_length = 2;
-    slave_msg_length =1;
-    master_func_all_zeros(master_message);
-    //-------- Master main message will be -------- :
-    master_message[0] = 4;
-    //-------- variables end --------
-    //-------- crc8 message -------- : 
-    crc8_var = crc8(master_message, master_msg_length);
-    Serial.println("Crc8 result : ");
-    Serial.println(crc8_var);
-    master_message[0] = crc8_var;
-    master_func_write(slave_adress, master_message, 1);
-    //-------- Master main message -------- :
-    master_message[0] = 4;
-    master_func_write(slave_adress, master_message, master_msg_length);
-    master_func_read(slave_adress, slave_msg_length, slave_msg);
-    check_crc_result(check_crc(master_message, master_msg_length, slave_msg[0]));
     
     default:
     *current_request = 0; // 0 beacuse once the code gets out of this function

@@ -3,7 +3,7 @@
  * 
  * \author Bruno Benedetti <brunobenedetti45@gmail.com>
  * 
- * \version 1.0.1
+ * \version 2.0.0
  * 
  * \date 06/11/2021
  * 
@@ -18,7 +18,6 @@ void setup()
 {
   master_func_setup();
   current_request = 1;
-  Serial.println("Teste");
 }
 
 void loop() 
